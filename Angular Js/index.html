@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="LunchCheck" lang="en">
+    <head>
+        <title>Lunch Checker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="angular.min.js"></script>
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <style>
+         .message { font-size: 1.3em; font-weight: bold; }
+         div.ok { color: green; }
+         div.error { color: red; }
+         #lunch-menu.ok { border-color: green; }
+         #lunch-menu.error { border-color: red; }
+         #parser-message {
+             font-style: italic;
+             }
+         #parser-message.default { color: #121278; }
+         #parser-message.skimmed { color: #a1560d; }
+        </style>
+    </head>
+    <body>
+        <div class="container" ng-controller="LunchCheckController">
+            <h1>Lunch Checker</h1>
+            <div class="form-group">
+                <input id="lunch-menu" type="text" ng-model="menu"
+                       placeholder="list comma separated dishes you usually have for lunch"
+                       class="form-control"
+                ng-class="status_class">
+                <p id="parser-message" ng-class="parser_status">
+                    Parser message:
+                    {{parser_message}}
+                </p>
+                {{}}
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default btn-outline-primary"
+                        ng-click="too_much()"
+                >Check If Too Much</button>
+            </div>
+            <div class="form-group message" ng-class="status_class">
+                {{message}}
+            </div>
+        </div>
+
+    </body>
+</html>
